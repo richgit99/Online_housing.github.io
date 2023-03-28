@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<style>
+    @media (max-width:500px) {
+        form::before {
+            margin-top: 2.5em;
+            /* position: absolute; */
+            /* bottom: 0; */
+        }
+
+
+
+    }
+
+    form {
+        /* margin-bottom: 1em; */
+        background-color: rgb(163, 218, 148,0.8);
+        border: 1px solid aqua;
+        width: 90%;
+        margin: 0 auto;
+        max-width: 600px;
+        margin-top: 2em;
+        position: relative;
+        /* color: aqua; */
+
+    }
+
+    form::before {
+        /* max-width: 600px; */
+        display: block;
+        text-align: center;
+        border: 1px solid rgb(161, 245, 241);
+        content: "Meet the seller and discuss about buying this house ";
+        background-color: rgba(30, 219, 156, 0.5);
+        /* color: chartreuse; */
+        width: 100%;
+        padding: 0.4em 0;
+        /* margin: 0 auto; */
+        font-weight: bold;
+    }
+
+
+    form .mb-3 {
+        width: 90%;
+        margin: 0 auto;
+        font-weight: bold;
+        max-width: 500px;
+    }
+</style>
+
+<body style="background: url('form_bg.jpg');">
+
+
+    <form id="full_form">
+
+        <h3 style="text-align: center;margin: 0.5em 0 1em 0;" id="changing_text">Share your details</h3>
+
+        <a href="index.html">
+            <button type="button" class="btn-close" aria-label="Close" style="
+padding: 0.8em;position: absolute;top:0;right: 0;" id="exit_iframe"></button>
+        </a>
+
+        <div class="mb-3">
+            <label for="input_value" class="form-label">Enter Full Name</label>
+            <input type="text" class="form-control real_input" id="name_value" placeholder="Rocky kevin" required
+                autocomplete="off">
+
+        </div>
+
+
+
+        <div class="mb-3">
+            <label for="email_value" class="form-label">Email address</label>
+            <input type="email" class="form-control name_input" id="email_value" aria-describedby="emailHelp"
+                placeholder="xyz@email.com" required>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="input_address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="input_address" placeholder="H.no 93 ,Peter Second Court"
+                required>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="input_tel" class="form-label">Phone</label>
+            <input type="tel" class="form-control" id="input_tel" placeholder="985019371" required>
+
+        </div>
+
+
+        <br>
+
+        <input style="display: block;margin: 0 auto;" id="seller_button" type="submit"></button>
+        <br>
+    </form>
+
+
+
+    <script>
+
+
+
+
+        const full_form = document.getElementById("full_form");
+
+        const body = document.body;
+
+
+
+
+        const exit_iframe = document.getElementById("exit_iframe");
+        exit_iframe.onclick = function () {
+
+
+        }
+
+        var name_statement;
+        // var email_statement;
+        var input_tel_statment;
+
+
+
+        const name_value = document.getElementById("name_value");
+        const email_value = document.getElementById('email_value');
+        const input_address = document.getElementById("input_address");
+        const input_tel = document.getElementById("input_tel");
+
+        const nameRegex = /^[a-zA-Z\s]+$/;
+        name_value.addEventListener('input', () => {
+            if (!nameRegex.test(name_value.value)) {
+                name_value.setCustomValidity('Please senter a valid name');
+                name_value.style.border = '1px solid red';
+                name_statement = false;
+            } else {
+                name_value.setCustomValidity('');
+                name_statement = true;
+                name_value.style.border = '1px solid black';
+
+            }
+        });
+
+
+
+        const phoneRegex = /^\d{10}$/;
+
+        input_tel.addEventListener('input', () => {
+            const phoneNumber = input_tel.value;
+
+            if (!phoneRegex.test(phoneNumber)) {
+                input_tel.setCustomValidity('Please enter a valid 10-digit phone number without The country code');
+                input_tel.style.border = '1px solid red';
+                input_tel_statment = false;
+            } else {
+                input_tel.setCustomValidity('');
+                input_tel_statment = true;
+                input_tel.style.border = '1px solid black';
+            }
+        });
+
+
+
+        full_form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            if (input_tel_statment == true && name_statement == true) {
+                alert("d ejde");
+                const all_input = document.querySelectorAll('input');
+                const all_labels = document.querySelectorAll("label");
+
+                all_input.forEach(function (e) {
+                    e.remove();
+                })
+                all_labels.forEach(function (e) {
+                    e.remove();
+                })
+
+                document.getElementById("changing_text").innerText = "Sent your details to the seller";
+            }
+
+
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>

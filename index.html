@@ -1,0 +1,598 @@
+<!-- Author: Richard Mascarenas, Roll no : 2237 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Housing</title>
+    <link rel="shortcut icon" href="house_logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<link rel="stylesheet" href="index.css">
+
+<body>
+
+    <header>
+        <div class="text" style="display: inline-block;margin: 0 auto;display: flex;justify-content: center;">
+
+            <h1>BUY YOUR DREAM HOUSE</h1>
+        </div>
+    </header>
+
+    <br><br>
+
+    <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#scrolling_time" aria-expanded="false"
+        style="padding: 0.5em;font-weight: bold;margin-bottom: 0.5em;margin-left: 1em;">Search Filters</button>
+
+    <div class="row collapse" id="scrolling_time" style="height: max-content;text-align: center;max-width: 800px;
+width: 90%;margin: 0 auto;">
+
+
+        <br><br>
+
+        <div class="navbar">
+
+            <div class="Price">
+                <label for="select_id" class="form-label" style="font-weight: bold;">Select Price</label>
+                <select class="form-select real_input" aria-label="Default select example" id="select_id" required
+                    style="border: 1.5px solid rgba(66, 65, 65, 0.753);">
+                    <option value="All">All</option>
+                    <option value="below_70L">Below 70L</option>
+                    <!-- <option value="above_50L">Above 50L</option> -->
+                    <option value="between_80L_and_1Cr">Between 80L and 1Cr</option>
+                    <option value="above_1Cr">Above 1Cr</option>
+                    <option value="Between_1Cr_and_25Cr">Between 1Cr and 2.5Cr</option>
+                    <option value="3Cr_and_above">3 Cr and above</option>
+                </select>
+
+            </div>
+
+            <div class="Year_built">
+                <label for="Year_built" class="form-label" style="font-weight: bold;">Year Built</label>
+                <select class="form-select real_input" aria-label="Default select example" id="Year_built" required
+                    style="border: 1.5px solid rgba(66, 65, 65, 0.753);">
+                    <option value="All">All</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="bedrooms">
+                <label for="bedrooms" class="form-label" style="font-weight: bold;">No of Bedrooms</label>
+                <select class="form-select real_input" aria-label="Default select example" id="bedrooms" required
+                    style="border: 1.5px solid rgba(66, 65, 65, 0.753);">
+                    <option value="All">Any</option>
+
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+
+                </select>
+
+            </div>
+
+            <div>
+                <button id="apply_filters">Apply Filters</button>
+                <button id="reset_filters" type="reset">Reset Filters</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <br> -->
+
+    <div class="alert alert-warning hide_alert" role="alert" id="warning" style="width: 70%;
+min-width: 280px;margin: 0 auto;border: 2px solid rgb(240, 163, 101);max-width: 500px;
+font-weight: bolder;padding: 0.3em 0.4em;color: rgb(236, 81, 81);margin-top: 1em;">
+        No such house found, try other options
+    </div>
+
+
+    <br><br>
+    <div class="all_cards_container">
+
+        <div class="card_container scale_up" id="card_1">
+
+            <div class="card1" id="one">
+
+                <div class="front_part" style="margin-top: 0;">
+
+                    <img src="house1.jpg" alt="goa">
+
+
+                    <h2>Pinecrest Lodge</h2>
+
+
+                    <h6> Near Vagator Beach, Anjuna, Goa</h6>
+
+                    <div class="price"> ₹ 85 L</div>
+
+                    <div class="front_buttons"
+                        style="display: flex;gap: 2em;justify-content: center;margin-top: 0.76em;">
+                        <a href="payment.html">
+                            <button class="buy_button" id="buy_button">Buy now</button>
+                        </a>
+
+
+                        <button onclick="turn_card_1()">More info</button>
+                    </div>
+
+                </div>
+                <div class="back_part" style="background-image: url('b11.jpg');">
+                    <div class='inner_back_part'>
+                        <h5><b>Year Built : </b>2019</h5>
+
+                        <h5><b>Square footage : </b> 2500 sq feet</h5>
+
+                        <h5><b>No of Bedrooms :</b> 3</h5>
+
+                        <h5><b>No of Bathrooms :</b> 2</h5>
+
+                        <h5><b>Seller/Agent :</b> John Smith </h5>
+
+                        <h5><b>Contact :</b> +91-9876543210 </h5>
+
+                        <h5><b>Email :</b> johnsmith88@gmail.com</h5>
+                    </div>
+                    <button onclick="turnback_card_1()" style="padding: 0 1em;">back</button>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <!-- Second card -->
+
+        <div class="card_container scale_up" id="card_2">
+
+            <div class="card1" id="two">
+
+                <div class="front_part">
+
+                    <img src="house2.jpg" alt="goa">
+
+
+                    <h2>Willow Tree Mano</h2>
+
+
+                    <h6> Alto Porvorim, Bardez, Goa </h6>
+
+                    <div class="price"> ₹ 1 Cr</div>
+
+                    <div class="front_buttons"
+                        style="display: flex;gap: 2em;justify-content: center;margin-top: 0.76em;">
+                        <a href="payment.html">
+                            <button class="buy_button" id="buy_button">Buy now</button>
+                        </a>
+
+                        <button onclick="turn_card_2()">More info</button>
+                    </div>
+
+                </div>
+                <div class="back_part" style="background-image: url('b12.jpg');">
+                    <div class='inner_back_part'>
+                        <h5><b>Year Built : </b>2020</h5>
+
+                        <h5><b>Square footage : </b> 2300 sq feet</h5>
+
+                        <h5><b>No of Bedrooms :</b> 2</h5>
+
+                        <h5><b>No of Bathrooms :</b> 2</h5>
+
+                        <h5><b>Seller/Agent :</b> Boika Powell </h5>
+
+                        <h5><b>Contact :</b> +91-9846543223 </h5>
+
+                        <h5><b>Email :</b> boikapowell@gmail.com</h5>
+                    </div>
+                    <button onclick="turnback_card_2()" style="padding: 0 1em;">back</button>
+                </div>
+
+
+
+            </div>
+        </div>
+        <!-- Third card -->
+
+
+        <div class="card_container scale_up" id="card_3">
+
+            <div class="card1" id="three">
+
+                <div class="front_part">
+
+                    <img src="house3.jpg" alt="goa">
+
+
+                    <h2>Oak Grove Estate</h2>
+
+
+
+                    <h6> Near Vagator Beach, Anjuna, Goa</h6>
+
+                    <div class="price"> ₹ 60 L</div>
+                    <div class="front_buttons"
+                        style="display: flex;gap: 2em;justify-content: center;margin-top: 0.76em;">
+
+                        <a href="payment.html">
+                            <button class="buy_button" id="buy_button">Buy now</button>
+                        </a>
+                 
+
+                        <button onclick="turn_card_3()">More info</button>
+                    </div>
+
+                </div>
+                <div class="back_part" style="background-image: url('b9.jpg');">
+                    <div class='inner_back_part'>
+                        <h5><b>Year Built : </b>2021</h5>
+
+                        <h5><b>Square footage : </b> 2000 sq feet</h5>
+
+                        <h5><b>No of Bedrooms :</b> 2</h5>
+
+                        <h5><b>No of Bathrooms :</b> 2</h5>
+
+                        <h5><b>Seller/Agent :</b> Roy Vaz </h5>
+
+                        <h5><b>Contact :</b> +91-9836543210 </h5>
+
+                        <h5><b>Email :</b> johnsmith88@gmail.com</h5>
+                    </div>
+                    <button onclick="turnback_card_3()" style="padding: 0 1em;">back</button>
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+        <!-- fourth card -->
+
+        <div class="card_container scale_up" id="card_4">
+
+            <div class="card1" id="four">
+
+                <div class="front_part rgb">
+
+                    <img src="house4.jpg" alt="goa">
+
+
+                    <h2>Bluebird Bungalow</h2>
+
+
+                    <h6> Calangute - Baga Road, Khobra Vaddo, Goa </h6>
+
+                    <div class="price"> ₹ 80 L</div>
+                    <div class="front_buttons"
+                        style="display: flex;gap: 2em;justify-content: center;margin-top: 0.76em;">
+                        <a href="payment.html">
+                            <button class="buy_button" id="buy_button">Buy now</button>
+                        </a>
+                        <button onclick="turn_card_4()">More info</button>
+                    </div>
+                </div>
+                <div class="back_part" style="background-image: url('b8.jpg');">
+                    <div class='inner_back_part'>
+                        <h5><b>Year Built : </b>2020</h5>
+
+                        <h5><b>Square footage : </b> 2300 sq feet</h5>
+
+                        <h5><b>No of Bedrooms :</b> 2</h5>
+
+                        <h5><b>No of Bathrooms :</b> 2</h5>
+
+                        <h5><b>Seller/Agent :</b> Rahul Khan </h5>
+
+                        <h5><b>Contact :</b> +91-9956543220 </h5>
+
+                        <h5><b>Email :</b> rahulkhan@gmail.com</h5>
+                    </div>
+                    <button onclick="turnback_card_4()" style="padding: 0 1em;">back</button>
+                </div>
+
+
+            </div>
+
+
+        </div>
+        <!-- fifth card -->
+
+        <div class="card_container scale_up" id="card_5">
+
+            <div class="card1 rgb" id="five">
+
+                <div class="front_part">
+
+                    <img src="house5.jpg" alt="goa">
+
+
+                    <h2>Seaside Cottage</h2>
+
+
+                    <h6> Calangute - Candolim Road, Naikavaddo, Goa</h6>
+                    <div class="price"> ₹ 1.3 Cr</div>
+                    <div class="front_buttons"
+                        style="display: flex;gap: 2em;justify-content: center;margin-top: 0.76em;">
+                        <a href="payment.html">
+                            <button class="buy_button" id="buy_button">Buy now</button>
+                        </a>
+                        <button onclick="turn_card_5()">More info</button>
+                    </div>
+
+                </div>
+                <div class="back_part" style="background-image: url('b7.jpg');">
+                    <div class='inner_back_part'>
+                        <h5><b>Year Built : </b>2020</h5>
+
+                        <h5><b>Square footage : </b> 2600 sq feet</h5>
+
+                        <h5><b>No of Bedrooms :</b> 3</h5>
+
+                        <h5><b>No of Bathrooms :</b> 2</h5>
+
+                        <h5><b>Seller/Agent :</b> Sunil Naik </h5>
+
+                        <h5><b>Contact :</b> +91-9366543220 </h5>
+
+                        <h5><b>Email :</b> sunilnaik28@gmail.com</h5>
+                    </div>
+                    <button onclick="turnback_card_5()" style="padding: 0 1em;">back</button>
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+        <!-- sixth card -->
+
+        <div class="card_container scale_up" id="card_6">
+
+            <div class="card1" id="six">
+
+                <div class="front_part">
+
+                    <img src="house6.jpg" alt="goa">
+
+                    <h2>Harbor View Villa</h2>
+
+
+                    <h6> - Bogmalo Beach Road, Issorcim, Goa </h6>
+
+                    <div class="price"> ₹ 3 Cr</div>
+                    <div class="front_buttons"
+                        style="display: flex;gap: 2em;justify-content: center;margin-top: 0.76em;">
+                        <a href="payment.html">
+                            <button class="buy_button" id="buy_button">Buy now</button>
+                        </a>
+                        <button onclick="turn_card_6()">More info</button>
+                    </div>
+                </div>
+
+                <div class="back_part" style="background-image: url('b6.jpg');">
+                    <div class='inner_back_part'>
+                        <h5><b>Year Built : </b>2020</h5>
+
+                        <h5><b>Square footage : </b> 3500 sq feet</h5>
+
+                        <h5><b>No of Bedrooms :</b> 4</h5>
+
+                        <h5><b>No of Bathrooms :</b> 3</h5>
+
+                        <h5><b>Seller/Agent :</b> Larry Martins </h5>
+
+                        <h5><b>Contact :</b> +91-9356543233 </h5>
+
+                        <h5><b>Email :</b> larrymartins@gmail.com</h5>
+                    </div>
+                    <button onclick="turnback_card_6()" style="padding: 0 1em;">back</button>
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+        <!-- seventh card -->
+
+        <div class="card_container scale_up" id="card_7">
+
+            <div class="card1" id="seven">
+
+                <div class="front_part">
+
+                    <img src="house7.jpg" alt="goa">
+
+
+                    <h2>Riverbend Retreat</h2>
+
+
+                    <h6> Mandovi Riverside, Panaji, Goa</h6>
+
+                    <div class="price"> ₹ 2 Cr</div>
+
+                    <div class="front_buttons"
+                        style="display: flex;gap: 2em;justify-content: center;margin-top: 0.76em;">
+                        <a href="payment.html">
+                            <button class="buy_button" id="buy_button">Buy now</button>
+                        </a>
+                        <button onclick="turn_card_7()">More info</button>
+                    </div>
+
+                </div>
+                <div class="back_part" style="background-image: url('b5.jpg');">
+                    <div class='inner_back_part'>
+                        <h5><b>Year Built : </b>2019</h5>
+
+                        <h5><b>Square footage : </b> 2800 sq feet</h5>
+
+                        <h5><b>No of Bedrooms :</b> 3</h5>
+
+                        <h5><b>No of Bathrooms :</b> 2</h5>
+
+                        <h5><b>Seller/Agent :</b> Parker Gomes </h5>
+
+                        <h5><b>Contact :</b> +91-9856543712 </h5>
+
+                        <h5><b>Email :</b> parkergomes28@gmail.com</h5>
+                    </div>
+                    <button onclick="turnback_card_7()" style="padding: 0 1em;">back</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Eighth card -->
+
+        <div class="card_container scale_up" id="card_8">
+
+            <div class="card1" id="eight">
+
+                <div class="front_part">
+
+                    <img src="house8.jpg" alt="goa">
+
+
+                    <h2>Coastal Breeze Estate</h2>
+
+
+                    <h6> Morjim Beach Road, Pernem, Goa </h6>
+
+                    <div class="price"> ₹ 85 L</div>
+
+                    <div class="front_buttons"
+                        style="display: flex;gap: 2em;justify-content: center;margin-top: 0.76em;">
+                        <a href="payment.html">
+                            <button class="buy_button" id="buy_button">Buy now</button>
+                        </a>
+                        <button onclick="turn_card_8()">More info</button>
+                    </div>
+
+                </div>
+                <div class="back_part" style="background-image: url('b3.jpg');">
+                    <div class='inner_back_part'>
+                        <h5><b>Year Built : </b>2021</h5>
+
+                        <h5><b>Square footage : </b> 2500 sq feet</h5>
+
+                        <h5><b>No of Bedrooms :</b> 3</h5>
+
+                        <h5><b>No of Bathrooms :</b> 2</h5>
+
+                        <h5><b>Seller/Agent :</b> John Smith </h5>
+
+                        <h5><b>Contact :</b> +91-9876543210 </h5>
+
+                        <h5><b>Email :</b> johnsmith88@gmail.com</h5>
+                    </div>
+
+                    <button onclick="turnback_card_8()" style="padding: 0 1em;">back</button>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+        <!-- ninth card -->
+
+        <div class="card_container scale_up" id="card_9">
+
+            <div class="card1" id="nine">
+
+                <div class="front_part">
+
+                    <img src="house9.jpg" alt="goa">
+
+                    <h2>Sunset Villa</h2>
+
+
+                    <h6> Near Vagator Beach, Anjuna, Goa</h6>
+
+                    <div class="price"> ₹ 90 L</div>
+                    <div class="front_buttons"
+                        style="display: flex;gap: 2em;justify-content: center;margin-top: 0.76em;">
+                        <a href="payment.html">
+                            <button class="buy_button" id="buy_button">Buy now</button>
+                        </a>
+
+
+
+                        <button onclick="turn_card_9()">More info</button>
+                    </div>
+
+                </div>
+                <div class="back_part" style="background-image: url('bg2.jpg');">
+
+                    <div class='inner_back_part'>
+                        <!-- <img src="bg.jpg" alt=""> -->
+                        <h5><b>Year Built : </b>2021</h5>
+
+                        <h5><b>Square footage : </b> 2300 sq feet</h5>
+
+                        <h5><b>No of Bedrooms :</b> 2</h5>
+
+                        <h5><b>No of Bathrooms :</b> 2</h5>
+
+                        <h5><b>Seller/Agent :</b> kevin Cardozo </h5>
+
+                        <h5><b>Contact :</b> +91-9826543211 </h5>
+
+                        <h5><b>Email :</b> kevincardozo@gmail.com</h5>
+                    </div>
+
+                    <button onclick="turnback_card_9()" style="padding: 0 1em;">back</button>
+                </div>
+
+
+            </div>
+
+
+        </div>
+        
+
+    </div>
+
+
+    <br><br>
+
+    <!-- <div style="position: absolute;width: 100%;" id="iframe_container" class="not_display">
+        <iframe src="payment.html" frameborder="0" width="93%" height="530px" style="margin: 0 auto;
+    display: block;max-width: 600px;background-color: transparent;" id="iframe_id" >
+
+    </div> -->
+
+
+
+
+    </iframe>
+
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>

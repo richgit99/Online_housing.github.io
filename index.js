@@ -11,7 +11,6 @@ const card_9 = document.getElementById("card_9");
 const hidden_elements = document.querySelectorAll('.card_container');
 const hidden_elements_1 = document.querySelectorAll('.card1');
 
-
 const one = document.getElementById("one");
 const two = document.getElementById("two");
 const three = document.getElementById("three");
@@ -21,8 +20,6 @@ const six = document.getElementById("six");
 const seven = document.getElementById("seven");
 const eight = document.getElementById("eight");
 const nine = document.getElementById("nine");
-
-
 
 const card_1_body = document.getElementById('card_1_body');
 const card_2_body = document.getElementById('card_2_body');
@@ -36,85 +33,26 @@ const reset_filters = document.getElementById("reset_filters");
 
 const all_cards = [card_1, card_2, card_3, card_4, card_5, card_6, card_7, card_8, card_9];
 
-// card flip effect
+const card_to_flip = [one, two, three, four, five, six, seven, eight, nine];
 
-function turn_card_1() {
-    one.style.transform = "rotateY(180deg)";
-}
+const more_info_buttons = document.getElementsByClassName('more_info');
+const back_buttons = document.getElementsByClassName('back_button');
 
-function turnback_card_1() {
-    one.style.transform = "rotateY(0deg)";
-}
+[...back_buttons].forEach((each_button, index) => {
+    each_button.onclick = function () {
+        card_to_flip[index].style.transform = 'rotateY(0deg)';
+    }
+});
 
-function turn_card_2() {
-    two.style.transform = "rotateY(180deg)";
-}
 
-function turnback_card_2() {
-    two.style.transform = "rotateY(0deg)";
-}
-
-function turn_card_3() {
-    three.style.transform = "rotateY(180deg)";
-}
-
-function turnback_card_3() {
-    three.style.transform = "rotateY(0deg)";
-}
-
-function turn_card_4() {
-    four.style.transform = "rotateY(180deg)";
-}
-
-function turnback_card_4() {
-    four.style.transform = "rotateY(0deg)";
-}
-
-function turn_card_5() {
-    five.style.transform = "rotateY(180deg)";
-}
-
-function turnback_card_5() {
-    five.style.transform = "rotateY(0deg)";
-}
-
-function turn_card_6() {
-    six.style.transform = "rotateY(180deg)";
-}
-
-function turnback_card_6() {
-    six.style.transform = "rotateY(0deg)";
-}
-function turn_card_7() {
-    seven.style.transform = "rotateY(180deg)";
-}
-
-function turnback_card_7() {
-    seven.style.transform = "rotateY(0deg)";
-}
-
-function turn_card_8() {
-    eight.style.transform = "rotateY(180deg)";
-}
-
-function turnback_card_8() {
-    eight.style.transform = "rotateY(0deg)";
-}
-
-function turn_card_9() {
-    nine.style.transform = "rotateY(180deg)";
-}
-
-function turnback_card_9() {
-    nine.style.transform = "rotateY(0deg)";
-
-}
-
+[...more_info_buttons].forEach((each_button, index) => {
+    each_button.addEventListener('click', () => {
+        card_to_flip[index].style.transform = 'rotateY(180deg)';
+    });
+});
 
 
 apply_filters.onclick = function () {
-    
-
 
     if ((select_id.value == "between_80L_and_1Cr") && (Year_built.value == 'All') && (bedrooms.value == "All")) {
 
@@ -169,7 +107,6 @@ apply_filters.onclick = function () {
         card_7.style.display = 'block';
 
 
-
         let i = 0;
         for (i in crore_and_above) {
             crore_and_above[i].style.display = 'none';
@@ -180,7 +117,7 @@ apply_filters.onclick = function () {
 
     else if (((select_id.value == "below_70L") && (Year_built.value == 'All') && (bedrooms.value == "All")) || select_id.value == "below_70L" && Year_built.value == "2021"
         && (bedrooms.value == "All" || bedrooms.value == "2")) {
-            warning.classList.add("hide_alert");
+        warning.classList.add("hide_alert");
         const not_sixty_lakh = [card_1, card_2, card_5, card_6, card_7, card_4, card_8, card_9, card_6];
         card_3.style.display = 'block';
 
@@ -235,7 +172,7 @@ apply_filters.onclick = function () {
     else if (((select_id.value == "All" || select_id.value == "3Cr_and_above" || select_id.value == "above_1Cr") && (Year_built.value == 'All' ||
         Year_built.value == "2020") && (bedrooms.value == "4")) || select_id.value == "3Cr_and_above" && (Year_built.value
             == "All" || Year_built.value == "2020") && (bedrooms.value == "4" || bedrooms.value == "All")) {
-                warning.classList.add("hide_alert");
+        warning.classList.add("hide_alert");
         const not_four_bed_rooms = [card_2, card_3, card_4, card_1, card_9, card_5, card_7, card_8];
 
         let j = 0;
@@ -302,7 +239,7 @@ apply_filters.onclick = function () {
 
     else if (((select_id.value == "between_80L_and_1Cr") && (Year_built.value == '2021') &&
         (bedrooms.value == "3")) || Year_built.value == '2021' && bedrooms.value == "3" && select_id.value == "All") {
-            warning.classList.add("hide_alert");
+        warning.classList.add("hide_alert");
         const not_in_2021 = [card_1, card_4, card_7, card_2, card_5, card_6, card_3, card_9];
 
         let j = 0;
@@ -318,7 +255,7 @@ apply_filters.onclick = function () {
 
     else if (((select_id.value == "All") && (Year_built.value == '2020') &&
         (bedrooms.value == "2")) || Year_built.value == '2020' && bedrooms.value == "2" && select_id.value == "between_80L_and_1Cr") {
-            warning.classList.add("hide_alert");
+        warning.classList.add("hide_alert");
         const not_in_2021 = [card_1, card_8, card_7, card_5, card_6, card_3, card_9];
 
         let j = 0;
@@ -333,9 +270,10 @@ apply_filters.onclick = function () {
     }
 
     // -------------------------------- 2021 with 2 bedrooms and All 
+
     else if ((select_id.value == "All") && (Year_built.value == '2021') &&
         (bedrooms.value == "2")) {
-            warning.classList.add("hide_alert");
+        warning.classList.add("hide_alert");
         const not_in_2021 = [card_1, card_8, card_7, card_5, card_6, card_2, card_4];
 
         let j = 0;
@@ -351,7 +289,7 @@ apply_filters.onclick = function () {
 
     else if ((select_id.value == "above_1Cr") && (Year_built.value == '2020') &&
         (bedrooms.value == "All")) {
-            warning.classList.add("hide_alert");
+        warning.classList.add("hide_alert");
         const not_in_2021 = [card_1, card_2, card_3, card_4, card_7, card_8, card_9];
 
         let j = 0;
@@ -365,9 +303,10 @@ apply_filters.onclick = function () {
     }
 
     // 2020 , price = above 1 Cr , 3 bedrooms
+
     else if ((select_id.value == "above_1Cr") && (Year_built.value == '2020') &&
         (bedrooms.value == "3")) {
-            warning.classList.add("hide_alert");
+        warning.classList.add("hide_alert");
         const not_in_2021 = [card_1, card_2, card_3, card_4, card_7, card_8, card_9, card_6];
 
         let j = 0;
@@ -381,11 +320,10 @@ apply_filters.onclick = function () {
 
     // Between 80L and 1cr with 3 bedrooms
 
-
     else if ((select_id.value == "between_80L_and_1Cr") && (Year_built.value == 'All') &&
         (bedrooms.value == "3")) {
 
-            warning.classList.add("hide_alert");
+        warning.classList.add("hide_alert");
         const not_in_2021 = [card_2, card_3, card_4, card_7, card_5, card_9, card_6];
 
         let j = 0;
@@ -401,10 +339,9 @@ apply_filters.onclick = function () {
 
     // Between 80L and 1cr with 3 bedrooms
 
-
     else if ((select_id.value == "between_80L_and_1Cr") && (Year_built.value == 'All') &&
         (bedrooms.value == "2")) {
-            warning.classList.add("hide_alert");
+        warning.classList.add("hide_alert");
         const not_in_2021 = [card_1, card_3, card_7, card_5, card_8, card_6];
 
         let j = 0;
@@ -422,7 +359,7 @@ apply_filters.onclick = function () {
 
     else if (((select_id.value == "between_80L_and_1Cr") && (Year_built.value == '2019') &&
         (bedrooms.value == "3")) || Year_built.value == '2019' && bedrooms.value == "3" && select_id.value == "All") {
-            warning.classList.add("hide_alert");
+        warning.classList.add("hide_alert");
         const not_in_2021 = [card_8, card_4, card_7, card_2, card_5, card_6, card_3, card_9];
 
         let j = 0;
@@ -438,7 +375,7 @@ apply_filters.onclick = function () {
 
     else if ((select_id.value == "above_1Cr") && (Year_built.value == 'All') &&
         (bedrooms.value == "3")) {
-            warning.classList.add("hide_alert");
+        warning.classList.add("hide_alert");
         const not_in_2021 = [card_8, card_4, card_1, card_2, card_6, card_3, card_9];
 
         let j = 0;
@@ -457,7 +394,7 @@ apply_filters.onclick = function () {
     else if ((select_id.value == "above_1Cr") && (Year_built.value == '2019') &&
         (bedrooms.value == "3" || bedrooms.value == "All")) {
 
-            warning.classList.add("hide_alert");
+        warning.classList.add("hide_alert");
         const not_in_2021 = [card_8, card_4, card_1, card_2, card_6, card_3, card_9, card_5];
 
         let j = 0;
@@ -467,7 +404,6 @@ apply_filters.onclick = function () {
 
         card_7.style.display = 'block';
 
-
     }
 
     // below 70L and 2 bedrooms , even below 70L in 2021 and all of them in one go
@@ -475,7 +411,7 @@ apply_filters.onclick = function () {
     else if ((select_id.value == "below_70L") && (Year_built.value == '2021' || Year_built.value == "All") &&
         (bedrooms.value == "2" || bedrooms.value == "All")) {
 
-            warning.classList.add("hide_alert");
+        warning.classList.add("hide_alert");
         const not_in_2021 = [card_8, card_4, card_1, card_2, card_6, card_5, card_9, , card_7];
 
         let j = 0;
@@ -492,17 +428,14 @@ apply_filters.onclick = function () {
 
     else if ((select_id.value == "All") && (bedrooms.value == "All") && (Year_built.value == "All")) {
         warning.classList.add("hide_alert");
-        
+
         let i = 0;
         // card_1.style.display = 'block';
         for (i in all_cards) {
             all_cards[i].style.display = 'block';
-    
+
         }
-
-
     }
-
 
 
     else {
@@ -516,17 +449,9 @@ apply_filters.onclick = function () {
         // card_1.style.display = 'block';
         for (i in all_cards) {
             all_cards[i].style.display = 'none';
-
         }
-
-        // setTimeout(() => {
-        //     warning.classList.add("hide_alert");
-        // }, 5000);
-
     }
-
 }
-
 
 
 const warning = document.getElementById("warning");
@@ -536,7 +461,6 @@ const warning = document.getElementById("warning");
 reset_filters.onclick = function () {
     warning.classList.add("hide_alert");
     let i = 0;
-    // card_1.style.display = 'block';
     for (i in all_cards) {
         all_cards[i].style.display = 'block';
 
@@ -545,4 +469,3 @@ reset_filters.onclick = function () {
 
 const buy_button = document.getElementById("buy_button");
 const all_buy_buttons = document.getElementsByClassName("buy_button");
-
